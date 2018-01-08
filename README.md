@@ -18,7 +18,7 @@ Then require the script within your app
 ``` js
 const analytics = require('gaap-analytics')
 
-analytics.init()
+analytics.elementsToTrack.init()
 ```
 
 To trigger and configure the events data attibutes must be added to your markup.
