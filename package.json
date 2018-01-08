@@ -1,7 +1,7 @@
 {
   "name": "gaap-analytics",
   "version": "1.0.0",
-  "description": "Shared analytics tools for GAAP products",
+  "description": "Shared analytics tools for GaaP products",
   "main": "lib/index.js",
   "scripts": {
     "precommit": "lint-staged",
@@ -15,7 +15,11 @@
   "keywords": [
     "nodejs",
     "js",
-    "standardjs"
+    "standardjs",
+    "GOV.UK",
+    "GaaP",
+    "Google Analytics",
+    "Event Tracking"
   ],
   "author": "Jon Heslop",
   "license": "MIT",
