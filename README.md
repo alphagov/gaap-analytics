@@ -48,11 +48,11 @@ The data attibutes attached to the `<nav>` element will trigger the JS to create
 
 In the case the events will labelled up like so:
 
-| Category | Action | Label |
-=============================
-| Header | Navigation link clicked | About |
-| Header | Navigation link clicked | Documentation |
-| Header | Navigation link clicked | Support |
-| Header | Navigation link clicked | Login |
+Category | Action | Label
+---------|--------|------
+Header | Navigation link clicked | About
+Header | Navigation link clicked | Documentation
+Header | Navigation link clicked | Support
+Header | Navigation link clicked | Login
 
 
