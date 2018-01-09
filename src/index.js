@@ -1,5 +1,4 @@
 const eventTracking = require('./event-tracking')
 
-module.exports = {
-  eventTracking
-}
+window.GAAP = window.GAAP || {}
+window.GAAP.eventTracking = eventTracking
