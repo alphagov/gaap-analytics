@@ -29,3 +29,30 @@ OR you can put it on a whole div/form and it will track all the aforementioned e
 - `data-click-action="Navigation link clicked"` - this is the action GA will use
 
 This will set up [Google Analytics event tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/events). The label property will be inferred from `element.value` or `element.innerText`
+
+## Example
+
+``` html
+<nav data-click-events data-click-category="Header" data-click-action="Navigation link clicked">
+  <ul>
+    <li><a href="https://www.payments.service.gov.uk/#main" title="Learn more about GOV.UK Pay">About</a></li>
+    <li><a href="https://govukpay-docs.cloudapps.digital" title="Read the GOV.UK Pay Documentation">Documentation</a></li>
+    <li><a href="https://www.payments.service.gov.uk/support/" title="Contact the GOV.UK Pay Team">Support</a></li>
+    <li><a href="/login" title="Log me in" id="login" class="content login active">Sign in</a></li>
+  </ul>
+</nav>
+```
+
+The data attibutes attached to the `<nav>` element will trigger the JS to create
+`eventListeners` which will fire `ga()` events when clicked.
+
+In the case the events will labelled up like so:
+
+| Category | Action | Label |
+=============================
+| Header | Navigation link clicked | About |
+| Header | Navigation link clicked | Documentation |
+| Header | Navigation link clicked | Support |
+| Header | Navigation link clicked | Login |
+
+
