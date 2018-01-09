@@ -1,39 +1,38 @@
 // 'use strict'
+const {describe, before, after, it} = require('mocha')
 const {expect} = require('chai')
 const sinon = require('sinon')
 
-describe('GaaP event tracking', () => { // eslint-disable-line no-undef
-  describe('If google analytics is initialised', () => { // eslint-disable-line no-undef
-    before('Arrange', function () { // eslint-disable-line no-undef
-      document.body.innerHTML = `<a href="#" data-click-events data-click-category="Header" data-click-action="Link clicked">Hello</a>`
+describe('GaaP event tracking', () => {
+  describe('If google analytics is initialised', () => {
+    const track = {
+      category: 'Header',
+      action: 'Link clicked',
+      label: 'Hello'
+    }
+
+    before('Arrange', function () {
+      document.body.innerHTML = `<a href="#" data-click-events data-click-category="${track.category}" data-click-action="${track.action}">${track.label}</a>`
       window.ga = sinon.spy()
       window.GAAP.eventTracking.init()
     })
 
-    before('Act', () => { // eslint-disable-line no-undef
+    before('Act', () => {
       document.querySelector('a').click()
     })
 
-    after(() => { // eslint-disable-line no-undef
+    after(() => {
       delete window.ga
     })
 
-    it('It should call the ga function with x', () => { // eslint-disable-line no-undef
-      expect(window.ga.called).to.equal(true)
+    it(`It should call the ga function with the category: ${track.category}`, () => {
+      expect(window.ga.args[0]).to.contain(track.category)
     })
-  })
-
-  describe('If google analytics is initialised', () => { // eslint-disable-line no-undef
-    before('Arrange', function () { // eslint-disable-line no-undef
-      document.body.innerHTML = `<a href="#" data-click-events data-click-category="Header" data-click-action="Link clicked">Hello</a>`
-      window.GAAP.eventTracking.init()
+    it(`It should call the ga function with the action: ${track.action}`, () => {
+      expect(window.ga.args[0]).to.contain(track.action)
     })
-
-    before('Act', () => { // eslint-disable-line no-undef
-      document.querySelector('a').click()
-    })
-    it('It should call the ga function with x', () => { // eslint-disable-line no-undef
-
+    it(`It should call the ga function with the label: ${track.label}`, () => {
+      expect(window.ga.args[0]).to.contain(track.label)
     })
   })
 })
