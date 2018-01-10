@@ -16,7 +16,7 @@ module.exports = elements => {
         break
       default:
         const childClickables = Array.prototype.slice.call(element.querySelectorAll(
-          'a, button, input[type~="button radio checkbox"], summary'
+          'a, button, input[type="button"], input[type="radio"], input[type="checkbox"], summary'
         ))
 
         if (childClickables.length) {
