@@ -2,10 +2,11 @@
   "name": "gaap-analytics",
   "version": "1.0.0",
   "description": "Shared analytics tools for GaaP products",
-  "main": "lib/index.js",
+  "main": "src/index.min.js",
+  "browser": "lib/gaap-analytics.min.js",
   "scripts": {
     "precommit": "lint-staged",
-    "compile": "./node_modules/browserify/bin/cmd.js src/index.js -o lib/index.js -t [ babelify --presets [ env ] ]",
+    "compile": "./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/gaap-analytics.js -c -m -o lib/gaap-analytics.min.js",
     "prepublish": "npm run compile",
     "test": "./node_modules/karma/bin/karma start"
   },
@@ -36,7 +37,18 @@
   },
   "babel": {
     "presets": [
-      "es2015"
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 2 versions",
+              "safari >= 7",
+              "ie >= 10"
+            ]
+          }
+        }
+      ]
     ]
   },
   "devDependencies": {
@@ -62,6 +74,7 @@
     "mocha": "^4.1.0",
     "sinon": "^4.1.4",
     "standard": "^10.0.3",
+    "uglify-js": "^3.3.5",
     "watchify": "^3.9.0"
   }
 }

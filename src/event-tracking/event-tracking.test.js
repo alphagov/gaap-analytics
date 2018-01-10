@@ -8,7 +8,7 @@ describe('GaaP event tracking', () => {
     const track = {
       category: 'Header',
       action: 'Link clicked',
-      label: 'Hello'
+      label: 'Log in'
     }
 
     before('Arrange', function () {
