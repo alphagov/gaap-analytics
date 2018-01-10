@@ -14,14 +14,21 @@ To get started add the script as a dependency with npm
 `npm i -S gaap-analytics`
 
 Then require the script within your app
-
 ``` js
 const analytics = require('gaap-analytics')
 
-analytics.elementsToTrack.init()
+analytics.init()
 ```
 
-To trigger and configure the events data attibutes must be added to your markup.
+Alternatively import and initialise the file in your html.
+``` html
+<script src="./node_modules/gaap_analytics/lib/gaap-analytics.min.js"/>
+<script>
+    window.GAAP.analytics.init()
+</script>
+```
+
+To trigger and configure the events data attributes must be added to your markup.
 
 - `data-click-events` - this triggers the script and is designed to work with `A`, `INPUT[type~="button radio checkbox"]`, `BUTTON`
 OR you can put it on a whole div/form and it will track all the aforementioned elements within it
