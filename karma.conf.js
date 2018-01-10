@@ -7,8 +7,7 @@ module.exports = karma => karma.set({
     'mocha'
   ],
   files: [
-    'src/**/*.js',
-    'test/index.js'
+    'src/**/*.js'
   ],
   plugins: [
     'karma-mocha',
@@ -22,8 +21,7 @@ module.exports = karma => karma.set({
     transform: [['babelify']]
   },
   preprocessors: {
-    'src/**/*.js': [ 'browserify' ],
-    'test/**/*.js': [ 'browserify' ]
+    'src/**/*.js': [ 'browserify' ]
   },
   reporters: ['mocha'],
   browsers: ['ChromeHeadless'],

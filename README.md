@@ -14,13 +14,17 @@ To get started add the script as a dependency with npm
 `npm i -S gaap-analytics`
 
 Then require the script within your app
+``` js
+const analytics = require('gaap-analytics')
 
+analytics.init()
+```
 
 Alternatively import and initialise the file in your html.
 ``` html
-<script src="./node_modules/gaap_analytics/lib/index.min.js">
+<script src="./node_modules/gaap_analytics/lib/gaap-analytics.min.js"/>
 <script>
-    window.GAAP.eventTracking.init()
+    window.GAAP.analytics.init()
 </script>
 ```
 

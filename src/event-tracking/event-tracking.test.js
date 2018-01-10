@@ -13,7 +13,7 @@ describe('GaaP event tracking', () => {
 
     before('Arrange', function () {
       window.ga = sinon.spy()
-      window.GAAP.eventTracking.init()
+      window.GAAP.analytics.init()
     })
 
     after(() => {
@@ -25,7 +25,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<a href="#" data-click-events data-click-category="${track.category}" data-click-action="${track.action}">${track.label}</a>`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
@@ -46,7 +46,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<button data-click-events data-click-category="${track.category}" data-click-action="${track.action}">${track.label}</button>`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
@@ -67,7 +67,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<input type="radio" value="${track.label}" data-click-events data-click-category="${track.category}" data-click-action="${track.action}" />`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
@@ -94,7 +94,7 @@ describe('GaaP event tracking', () => {
 
     before('Arrange', function () {
       window.ga = sinon.spy()
-      window.GAAP.eventTracking.init()
+      window.GAAP.analytics.init()
     })
 
     after(() => {
@@ -105,7 +105,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<nav data-click-events data-click-category="${track.category}" data-click-action="${track.action}"><a href="#">${track.label}</a></nav>`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
@@ -126,7 +126,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<div data-click-events data-click-category="${track.category}" data-click-action="${track.action}"><button>${track.label}</button></div>`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
@@ -147,7 +147,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<form data-click-events data-click-category="${track.category}" data-click-action="${track.action}"><input type="radio" value="${track.label}"/></form>`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
@@ -169,7 +169,7 @@ describe('GaaP event tracking', () => {
       before('Arrange', function () {
         document.body.innerHTML = `<detail data-click-events data-click-category="${track.category}" data-click-action="${track.action}"><summary>${track.label}</summary></detail>`
         window.ga = sinon.spy()
-        window.GAAP.eventTracking.init()
+        window.GAAP.analytics.init()
       })
 
       before('Act', () => {
