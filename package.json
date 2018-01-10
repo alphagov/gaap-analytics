@@ -1,6 +1,6 @@
 {
   "name": "gaap-analytics",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Shared analytics tools for GaaP products",
   "main": "src/index.min.js",
   "browser": "lib/gaap-analytics.min.js",
