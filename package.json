@@ -3,7 +3,6 @@
   "version": "2.0.3",
   "description": "Shared analytics tools for GaaP products",
   "main": "src/index.js",
-  "browser": "lib/gaap-analytics.min.js",
   "scripts": {
     "precommit": "lint-staged",
     "compile": "mkdir -p lib && ./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/gaap-analytics.js -c -m -o lib/gaap-analytics.min.js",
