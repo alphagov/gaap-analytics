@@ -1,0 +1,4 @@
+**/*.test.js
+karma.conf.js
+.nvmrc
+.editorconfig
