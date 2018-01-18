@@ -6,8 +6,8 @@
   "scripts": {
     "precommit": "lint-staged",
     "transpile": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
-    "browserify": "mkdir -p lib/browsered && ./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/browsered/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/browsered/gaap-analytics.js -c -m -o lib/gaap-analytics.min.js",
-    "prepublish": "npm run transpile && npm run browserify",
+    "browserify": "mkdir -p lib/browsered && ./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/browsered/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/browsered/gaap-analytics.js -c -m -o lib/browsered/gaap-analytics.min.js",
+    "prepare": "npm run transpile && npm run browserify",
     "test": "./node_modules/karma/bin/karma start"
   },
   "repository": {
