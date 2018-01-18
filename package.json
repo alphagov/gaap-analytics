@@ -2,11 +2,12 @@
   "name": "gaap-analytics",
   "version": "2.0.3",
   "description": "Shared analytics tools for GaaP products",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "precommit": "lint-staged",
-    "compile": "mkdir -p lib && ./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/gaap-analytics.js -c -m -o lib/gaap-analytics.min.js",
-    "prepublish": "npm run compile",
+    "transpile": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "browserify": "mkdir -p lib/browsered && ./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/browsered/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/browsered/gaap-analytics.js -c -m -o lib/gaap-analytics.min.js",
+    "prepublish": "npm run transpile && npm run browserify",
     "test": "./node_modules/karma/bin/karma start"
   },
   "repository": {

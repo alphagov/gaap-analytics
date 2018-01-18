@@ -22,7 +22,7 @@ analytics.init()
 
 Alternatively import and initialise the file in your html.
 ``` html
-<script src="./node_modules/gaap_analytics/lib/gaap-analytics.min.js"/>
+<script src="./node_modules/gaap_analytics/lib/browsered/gaap-analytics.min.js"/>
 <script>
     window.GAAP.analytics.init()
 </script>
