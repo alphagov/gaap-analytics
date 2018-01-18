@@ -7,4 +7,4 @@ if (window) {
   window.GAAP.analytics = eventTracking
 }
 
-module.exports = eventTracking
+module.exports.eventTracking = eventTracking
