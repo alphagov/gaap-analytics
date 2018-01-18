@@ -20,9 +20,9 @@ const analytics = require('gaap-analytics')
 analytics.init()
 ```
 
-Alternatively import and initialise the file in your html.
+If you’re not using NPM then you can include the prebuilt version within 'build/'
 ``` html
-<script src="./node_modules/gaap_analytics/lib/browsered/gaap-analytics.min.js"/>
+<script src="gaap-analytics.min.js"/>
 <script>
     window.GAAP.analytics.init()
 </script>

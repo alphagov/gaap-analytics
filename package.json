@@ -4,10 +4,10 @@
   "description": "Shared analytics tools for GaaP products",
   "main": "lib/index.js",
   "scripts": {
-    "precommit": "lint-staged",
-    "transpile": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
-    "browserify": "mkdir -p lib/browsered && ./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o lib/browsered/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs lib/browsered/gaap-analytics.js -c -m -o lib/browsered/gaap-analytics.min.js",
-    "prepare": "npm run transpile && npm run browserify",
+    "precommit": "npm run build && lint-staged",
+    "transpile": "./node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "build": "./node_modules/browserify/bin/cmd.js src/index.js -t [ babelify ] -o build/gaap-analytics.js && ./node_modules/uglify-js/bin/uglifyjs build/gaap-analytics.js -c -m -o build/gaap-analytics.min.js",
+    "prepare": "npm run transpile",
     "test": "./node_modules/karma/bin/karma start"
   },
   "repository": {
@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/alphagov/gaap-analytics#readme",
   "lint-staged": {
-    "*.js": [
+    "src/**/*.js": [
       "standard --fix",
       "git add"
     ]
