@@ -20,7 +20,7 @@ const analytics = require('gaap-analytics')
 analytics.init()
 ```
 
-If you’re not using NPM then you can include the prebuilt version within 'build/'
+If you’re not using NPM then you can include the prebuilt version within `build/`
 ``` html
 <script src="gaap-analytics.min.js"/>
 <script>
