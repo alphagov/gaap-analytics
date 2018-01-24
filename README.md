@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alphagov/gaap-analytics.svg?branch=master)](https://travis-ci.org/alphagov/gaap-analytics)
+
 # GaaP analytics tools
 
 Reusable scripts to make analytics easier
