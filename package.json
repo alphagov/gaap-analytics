@@ -1,6 +1,6 @@
 {
   "name": "gaap-analytics",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "Shared analytics tools for GaaP products",
   "main": "lib/index.js",
   "scripts": {
@@ -31,9 +31,16 @@
   "homepage": "https://github.com/alphagov/gaap-analytics#readme",
   "xo": {
     "space": true,
-    "envs": ["browser", "es6"],
-    "globals": ["ga"],
-    "ignores": ["build"]
+    "envs": [
+      "browser",
+      "es6"
+    ],
+    "globals": [
+      "ga"
+    ],
+    "ignores": [
+      "build"
+    ]
   },
   "lint-staged": {
     "src/**/*.js": [
