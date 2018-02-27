@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/alphagov/gaap-analytics.svg?branch=master)](https://travis-ci.org/alphagov/gaap-analytics)
+[![npm](https://img.shields.io/npm/v/gaap-analytics.svg)](https://www.npmjs.com/package/gaap-analytics)
 
 # GaaP analytics tools
 
