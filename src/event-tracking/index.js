@@ -4,8 +4,8 @@
 // data-click-category="Header" - this is the category GA will put it in
 // data-click-action="Navigation link clicked" - this is the action GA will use
 
-'use strict'
+'use strict';
 
-const init = require('./find-trackable')
+const init = require('./find-trackable');
 
-module.exports = {init}
+module.exports = {init};

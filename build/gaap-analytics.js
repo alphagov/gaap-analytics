@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
 'use strict';
 
 module.exports = function (element, category, action, label) {
@@ -12,7 +12,7 @@ module.exports = function (element, category, action, label) {
       var newState = element.parentElement.hasAttribute('open') ? 'closed' : 'opened';
       action = action.replace(oldState, newState);
     }
-    ga('send', 'event', category, action, label); // eslint-disable-line no-undef
+    ga('send', 'event', category, action, label);
   });
 };
 
@@ -30,30 +30,34 @@ module.exports = function (elements) {
       case 'A':
       case 'BUTTON':
       case 'INPUT':
-        var label = element.tagName === 'INPUT' ? element.value : element.innerText;
-        addListener(element, eventCategory, eventAction, label);
-        break;
-      default:
-        var childClickables = Array.prototype.slice.call(element.querySelectorAll('a, button, input[type="button"], input[type="radio"], input[type="checkbox"], summary'));
-
-        if (childClickables.length) {
-          childClickables.forEach(function (element) {
-            var label = void 0;
-            switch (element.tagName) {
-              case 'A':
-              case 'BUTTON':
-              case 'SUMMARY':
-                label = element.innerText;
-                break;
-              default:
-                label = element.value;
-                break;
-            }
-
-            addListener(element, eventCategory, eventAction, label);
-          });
+        {
+          var label = element.tagName === 'INPUT' ? element.value : element.innerText;
+          addListener(element, eventCategory, eventAction, label);
+          break;
         }
-        break;
+      default:
+        {
+          var childClickables = Array.prototype.slice.call(element.querySelectorAll('a, button, input[type="button"], input[type="radio"], input[type="checkbox"], summary'));
+
+          if (childClickables.length !== 0) {
+            childClickables.forEach(function (element) {
+              var label = void 0;
+              switch (element.tagName) {
+                case 'A':
+                case 'BUTTON':
+                case 'SUMMARY':
+                  label = element.innerText;
+                  break;
+                default:
+                  label = element.value;
+                  break;
+              }
+
+              addListener(element, eventCategory, eventAction, label);
+            });
+          }
+          break;
+        }
     }
   });
 };
