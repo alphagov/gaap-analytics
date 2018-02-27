@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = karma => karma.set({
   frameworks: [
@@ -21,9 +21,9 @@ module.exports = karma => karma.set({
     transform: [['babelify']]
   },
   preprocessors: {
-    'src/**/*.js': [ 'browserify' ]
+    'src/**/*.js': ['browserify']
   },
   reporters: ['mocha'],
   browsers: ['ChromeHeadless'],
   singleRun: true
-})
+});
