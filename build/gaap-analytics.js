@@ -92,13 +92,82 @@ module.exports = { init: init };
 'use strict';
 
 var eventTracking = require('./event-tracking');
+var virtualPageview = require('./virtual-pageview');
 
 // Add to window.GAAP if in browser context
 if (window) {
   window.GAAP = window.GAAP || {};
-  window.GAAP.analytics = eventTracking;
+  window.GAAP.analytics = { eventTracking: eventTracking, virtualPageview: virtualPageview };
 }
 
 module.exports.eventTracking = eventTracking;
+module.exports.virtualPageview = virtualPageview;
 
-},{"./event-tracking":4}]},{},[5]);
+},{"./event-tracking":4,"./virtual-pageview":9}],6:[function(require,module,exports){
+'use strict';
+
+module.exports = function (element) {
+  element.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var gaParams = {
+      hitType: 'pageview',
+      page: e.target.dataset.virtualPageview || ''
+    };
+    var parameters = e.target.dataset.parameters;
+
+    if (parameters) {
+      parameters.split(' ').forEach(function (parameter) {
+        var key = parameter.split(':')[0];
+        var input = parameter.split(':')[1];
+        if (e.target.elements[input]) {
+          gaParams[key] = e.target.elements[input].value;
+        } else {
+          gaParams[key] = input;
+        }
+      });
+    }
+
+    ga('send', gaParams);
+    e.target.submit();
+  });
+};
+
+},{}],7:[function(require,module,exports){
+'use strict';
+
+var addListener = require('./add-listener');
+
+module.exports = function (elements) {
+  elements.forEach(function (element) {
+    addListener(element);
+  });
+};
+
+},{"./add-listener":6}],8:[function(require,module,exports){
+'use strict';
+
+var buildListener = require('./build-listener');
+
+module.exports = function () {
+  var elementsToTrack = Array.prototype.slice.call(document.querySelectorAll('[data-virtual-pageview]'));
+
+  if (elementsToTrack && typeof ga === 'function') {
+    buildListener(elementsToTrack);
+  }
+};
+
+},{"./build-listener":7}],9:[function(require,module,exports){
+// Works in combination with the following data-attributes
+// data-virtual-pageview="page/slug/name" - this triggers the script to run currently only works for form elements
+// data-parameters="dimension1:service-name" you can add custom parameters to your virtual pageview, such as dimensions and metrics.
+// Where 'service-name' is the name attribute of an element that you want to pass to google
+// For multiple space separate
+// e.g. data-parameters="dimension1:service-name metric1:total-amount"
+
+'use strict';
+
+var init = require('./find-virtual-pageview');
+
+module.exports = { init: init };
+
+},{"./find-virtual-pageview":8}]},{},[5]);
