@@ -45,7 +45,7 @@ This will set up [Google Analytics event tracking](https://developers.google.com
 <nav data-click-events data-click-category="Header" data-click-action="Navigation link clicked">
   <ul>
     <li><a href="https://www.payments.service.gov.uk/#main" title="Learn more about GOV.UK Pay">About</a></li>
-    <li><a href="https://govukpay-docs.cloudapps.digital" title="Read the GOV.UK Pay Documentation">Documentation</a></li>
+    <li><a href="https://docs.payments.service.gov.uk" title="Read the GOV.UK Pay Documentation">Documentation</a></li>
     <li><a href="https://www.payments.service.gov.uk/support/" title="Contact the GOV.UK Pay Team">Support</a></li>
     <li><a href="/login" title="Log me in" id="login" class="content login active">Sign in</a></li>
   </ul>
